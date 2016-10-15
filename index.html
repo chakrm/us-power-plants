@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            U.S. Power Plants
+        </title>
+
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta property="og:title" content="U.S. Power Plants" />
+        <meta property="og:description" content="Data collected from U.S. Energy Information Administration (EIA): http://www.eia.gov/maps/layer_info-m.php. Map created by  in CARTO" />
+
+        <link rel="shortcut icon" href="https://carto.com/favicon.ico" />
+
+        <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+        <link rel="stylesheet" href="https://carto.com/academy/css/cdbui.css" type="text/css" />
+        <link rel="stylesheet" href="style.css">
+            <style type="cartocss/html" id="simple">
+                /* Place simple style here */
+                #all_month_1{
+                  marker-fill-opacity: 0.9;
+                  marker-line-color: #FFF;
+                  marker-line-width: 1;
+                  marker-line-opacity: 1;
+                  marker-placement: point;
+                  marker-type: ellipse;
+                  marker-width: 10;
+                  marker-fill: #FF6600;
+                  marker-allow-overlap: true;
+                }
+            </style>
+
+            <style type="cartocss/html" id="categ-report-sta">
+
+            /** category visualization */
+
+#powerplants_us_201603 {
+ marker-fill-opacity: 0.7;
+ marker-line-color: #000000;
+ marker-line-width: 0.5;
+ marker-line-opacity: 0.8;
+ marker-placement: point;
+ marker-type: ellipse;
+ marker-width: 10;
+ marker-allow-overlap: true;
+}
+
+#powerplants_us_201603[primsource="biomass"] {
+ marker-fill: #A6CEE3;
+}
+#powerplants_us_201603[primsource="coal"] {
+ marker-fill: #3E7BB6;
+}
+#powerplants_us_201603[primsource="geothermal"] {
+ marker-fill: #B2DF8A;
+}
+#powerplants_us_201603[primsource="hydroelectric"] {
+ marker-fill: #33A02C;
+}
+#powerplants_us_201603[primsource="natural gas"] {
+ marker-fill: #FB9A99;
+}
+#powerplants_us_201603[primsource="nuclear"] {
+ marker-fill: #E31A1C;
+}
+#powerplants_us_201603[primsource="other"] {
+ marker-fill: #FDBF6F;
+}
+#powerplants_us_201603[primsource="petroleum"] {
+ marker-fill: #FF7F00;
+}
+#powerplants_us_201603[primsource="solar"] {
+ marker-fill: #FFCC00;
+}
+#powerplants_us_201603[primsource="wind"] {
+ marker-fill: #6A3D9A;
+}
+#powerplants_us_201603 {
+ marker-fill: #DDDDDD;
+}
+            </style>
+
+            <style type="cartocss/html" id="bubble-choropleth">
+            /** bubble visualization */
+
+#powerplants_us_201603{
+  marker-fill-opacity: 0.9;
+  marker-line-color: #FFF;
+  marker-line-width: 0.5;
+  marker-line-opacity: 1;
+  marker-placement: point;
+  marker-multi-policy: largest;
+  marker-type: ellipse;
+  marker-fill: #FF5C00;
+  marker-allow-overlap: true;
+  marker-clip: false;
+}
+#powerplants_us_201603 [ coal_mw <= 3389] {
+   marker-width: 25.0;
+}
+#powerplants_us_201603 [ coal_mw <= 1680.5] {
+   marker-width: 23.3;
+}
+#powerplants_us_201603 [ coal_mw <= 1268] {
+   marker-width: 21.7;
+}
+#powerplants_us_201603 [ coal_mw <= 940.7] {
+   marker-width: 20.0;
+}
+#powerplants_us_201603 [ coal_mw <= 620] {
+   marker-width: 18.3;
+}
+#powerplants_us_201603 [ coal_mw <= 450] {
+   marker-width: 16.7;
+}
+#powerplants_us_201603 [ coal_mw <= 305] {
+   marker-width: 15.0;
+}
+#powerplants_us_201603 [ coal_mw <= 155] {
+   marker-width: 13.3;
+}
+#powerplants_us_201603 [ coal_mw <= 70] {
+   marker-width: 11.7;
+}
+#powerplants_us_201603 [ coal_mw <= 22.4] {
+   marker-width: 10.0;
+}
+
+/** category visualization */
+
+#powerplants_us_201603 {
+marker-fill-opacity: 0.7;
+marker-line-color: #000000;
+marker-line-width: 0.5;
+marker-line-opacity: 0.8;
+marker-placement: point;
+marker-type: ellipse;
+marker-width: 10;
+marker-allow-overlap: true;
+}
+
+#powerplants_us_201603[primsource="biomass"] {
+marker-fill: #A6CEE3;
+}
+#powerplants_us_201603[primsource="coal"] {
+marker-fill: #3E7BB6;
+}
+#powerplants_us_201603[primsource="geothermal"] {
+marker-fill: #B2DF8A;
+}
+#powerplants_us_201603[primsource="hydroelectric"] {
+marker-fill: #33A02C;
+}
+#powerplants_us_201603[primsource="natural gas"] {
+marker-fill: #FB9A99;
+}
+#powerplants_us_201603[primsource="nuclear"] {
+marker-fill: #E31A1C;
+}
+#powerplants_us_201603[primsource="other"] {
+marker-fill: #FDBF6F;
+}
+#powerplants_us_201603[primsource="petroleum"] {
+marker-fill: #FF7F00;
+}
+#powerplants_us_201603[primsource="solar"] {
+marker-fill: #FFCC00;
+}
+#powerplants_us_201603[primsource="wind"] {
+marker-fill: #6A3D9A;
+}
+#powerplants_us_201603 {
+marker-fill: #DDDDDD;
+}
+            </style>
+
+            <style type="cartocss/html" id="overall-power-magnitude">
+            /** bubble visualization */
+
+#powerplants_us_201603{
+  marker-fill-opacity: 0.9;
+  marker-line-color: #FFF;
+  marker-line-width: 0.5;
+  marker-line-opacity: 1;
+  marker-placement: point;
+  marker-multi-policy: largest;
+  marker-type: ellipse;
+  marker-fill: #FF5C00;
+  marker-allow-overlap: true;
+  marker-clip: false;
+}
+#powerplants_us_201603 [ coal_mw <= 3389] {
+   marker-width: 25.0;
+}
+#powerplants_us_201603 [ coal_mw <= 1680.5] {
+   marker-width: 23.3;
+}
+#powerplants_us_201603 [ coal_mw <= 1268] {
+   marker-width: 21.7;
+}
+#powerplants_us_201603 [ coal_mw <= 940.7] {
+   marker-width: 20.0;
+}
+#powerplants_us_201603 [ coal_mw <= 620] {
+   marker-width: 18.3;
+}
+#powerplants_us_201603 [ coal_mw <= 450] {
+   marker-width: 16.7;
+}
+#powerplants_us_201603 [ coal_mw <= 305] {
+   marker-width: 15.0;
+}
+#powerplants_us_201603 [ coal_mw <= 155] {
+   marker-width: 13.3;
+}
+#powerplants_us_201603 [ coal_mw <= 70] {
+   marker-width: 11.7;
+}
+#powerplants_us_201603 [ coal_mw <= 22.4] {
+   marker-width: 10.0;
+}
+
+            </style>
+
+            <style type="cartocss/html" id="solar-bubble-magnitude">
+            /** bubble visualization */
+
+#powerplants_us_201603_solarmgw{
+  marker-fill-opacity: 0.9;
+  marker-line-color: #FFF;
+  marker-line-width: 0;
+  marker-line-opacity: 1;
+  marker-placement: point;
+  marker-multi-policy: largest;
+  marker-type: ellipse;
+  marker-fill: #FFCC00;
+  marker-allow-overlap: true;
+  marker-clip: false;
+  marker-comp-op: screen;
+}
+#powerplants_us_201603_solarmgw [ solar_mw <= 585.9] {
+   marker-width: 25.0;
+}
+#powerplants_us_201603_solarmgw [ solar_mw <= 133.4] {
+   marker-width: 23.3;
+}
+#powerplants_us_201603_solarmgw [ solar_mw <= 51] {
+   marker-width: 21.7;
+}
+#powerplants_us_201603_solarmgw [ solar_mw <= 27] {
+   marker-width: 20.0;
+}
+#powerplants_us_201603_solarmgw [ solar_mw <= 18.5] {
+   marker-width: 18.3;
+}
+#powerplants_us_201603_solarmgw [ solar_mw <= 12.9] {
+   marker-width: 16.7;
+}
+#powerplants_us_201603_solarmgw [ solar_mw <= 9.3] {
+   marker-width: 15.0;
+}
+#powerplants_us_201603_solarmgw [ solar_mw <= 5.7] {
+   marker-width: 13.3;
+}
+#powerplants_us_201603_solarmgw [ solar_mw <= 3.7] {
+   marker-width: 11.7;
+}
+#powerplants_us_201603_solarmgw [ solar_mw <= 1.9] {
+   marker-width: 10.0;
+}
+
+            </style>
+
+            <style type="cartocss/html" id="wind-bubble-magnitude">
+            /** bubble visualization */
+
+#powerplants_us_201603_windmgw{
+  marker-fill-opacity: 0.9;
+  marker-line-color: #FFF;
+  marker-line-width: 0;
+  marker-line-opacity: 1;
+  marker-placement: point;
+  marker-multi-policy: largest;
+  marker-type: ellipse;
+  marker-fill: #7B00B4;
+  marker-allow-overlap: true;
+  marker-clip: false;
+  marker-comp-op: screen;
+}
+#powerplants_us_201603_windmgw [ wind_mw <= 735.5] {
+   marker-width: 25.0;
+}
+#powerplants_us_201603_windmgw [ wind_mw <= 249] {
+   marker-width: 23.3;
+}
+#powerplants_us_201603_windmgw [ wind_mw <= 198] {
+   marker-width: 21.7;
+}
+#powerplants_us_201603_windmgw [ wind_mw <= 150] {
+   marker-width: 20.0;
+}
+#powerplants_us_201603_windmgw [ wind_mw <= 115.8] {
+   marker-width: 18.3;
+}
+#powerplants_us_201603_windmgw [ wind_mw <= 98.95] {
+   marker-width: 16.7;
+}
+#powerplants_us_201603_windmgw [ wind_mw <= 76.9] {
+   marker-width: 15.0;
+}
+#powerplants_us_201603_windmgw [ wind_mw <= 55.4] {
+   marker-width: 13.3;
+}
+#powerplants_us_201603_windmgw [ wind_mw <= 34.3] {
+   marker-width: 11.7;
+}
+#powerplants_us_201603_windmgw [ wind_mw <= 19.8] {
+   marker-width: 10.0;
+}
+            </style>
+    </head>
+
+
+    <body>
+
+        <div id="map"></div>
+        <div id="cartocss" class="layer_selector">
+          <p>STYLES</p>
+          <ul>
+            <li data="categ-report-sta" data-type="cartocss">Categorize power plants by primary generation source</li>
+            <li data="overall-power-magnitude" data-type="cartocss">Size power plants by magnitude generation</li>
+            <li data="solar-bubble-magnitude" data-type="cartocss">Size power plants by magnitude solar generation</li>
+            <li data="wind-bubble-magnitude" data-type="cartocss">Size power plants by magnitude wind generation</li>
+            <li data="bubble-choropleth" data-type="cartocss">Size power plants  by magnitude, color by prim generation source</li>
+            <li data="simple" data-type="cartocss">Reset CartoCSS</li>
+          </ul>
+        </div>
+
+        <div id="sql" class="layer_selector">
+          <p>QUERIES</p>
+          <ul>
+            <li data=" WHERE (coal_mw = 0)" data-type="sql">Show where no coal generation</li>
+            <li data=" WHERE statename IN ('New York','Massachusetts','Rhode Island') AND statename IS NOT NULL" data-type="sql">Show power plants in Massachusetts, New York, and Rhode Island</li>
+            <li data=" WHERE  sector_nam IN ('Electric Utility')" data-type="sql">Show electric utility-operated plants</li>
+            <li data=" WHERE  sector_nam IN ('IPP Non-CHP','Industrial CHP','IPP CHP','Commercial Non-CHP','Commercial CHP','Industrial Non-CHP')" data-type="sql">Show non-electric utility-operated plants</li>
+            <li data=" WHERE  sector_nam IN ('Commercial CHP')" data-type="sql">Show commercial CHP-operated plants</li>
+            <li data="" data-type="sql">Reset SQL</li>
+          </ul>
+        </div>
+
+      // ideally load Legend only when show color cateogries by generation type
+      <div class='cartodb-legend category'>
+        <ul>
+            <li>
+                <div class="bullet" style="background: #A6CEE3"></div> biomass
+            </li>
+            <li>
+                <div class="bullet" style="background: #1F78B4"></div> coal
+            </li>
+            <li>
+                <div class="bullet" style="background: #B2DF8A"></div> geothermal
+            </li>
+            <li>
+                <div class="bullet" style="background: #33A02C"></div> hydroelectric
+            </li>
+            <li>
+                <div class="bullet" style="background: #FB9A99"></div> natural gas
+            </li>
+            <li>
+                <div class="bullet" style="background: #E31A1C"></div> nuclear
+            </li>
+            <li>
+                <div class="bullet" style="background: #FDBF6F"></div> other
+            </li>
+            <li>
+                <div class="bullet" style="background: #FF7F00"></div> petroleum
+            </li>
+            <li>
+                <div class="bullet" style="background: #FFCC00"></div> solar
+            </li>
+            <li>
+                <div class="bullet" style="background: #6A3D9A"></div> wind
+            </li>
+            <li>
+                <div class="bullet" style="background: #DDDDDD"></div> Others
+            </li>
+        </ul>
+    </div>
+
+
+        <!-- include cartodb.js library -->
+        <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js" type="text/javascript"></script>
+
+        <!-- Pop-Up aka Infowindow is not working but integrate eventually !-->
+        <script type="infowindow/html" id="infowindow_template">
+                <div class="cartodb-popup v2">
+                    <a href="#close" class="cartodb-popup-close-button close">x</a>
+                    <div class="cartodb-popup-content-wrapper">
+                        <div class="cartodb-popup-header">
+                            <img style="width: 100%" src="https://cartodb.com/assets/logos/logos_full_cartodb_light.png"></src>
+                        </div>
+                        <div class="cartodb-popup-content">
+                            <h4>city</h4>
+                            <p>{{city}}</p>
+                            <h4>plant_name</h4>
+                            <p>{{plant_name}}</p>
+                            <h4>primsource</h4>
+                            <p>{{primsource}}</p>
+                            <h4>utility_na</h4>
+                            <p>{{utility_na}}</p>
+                        </div>
+                    </div>
+                    <div class="cartodb-popup-tip-container"></div>
+                </div>
+        </script>
+
+        <!-- This is the data-loading code !-->
+        <script src="script.js"></script>
+
+    </body>
+</html>
