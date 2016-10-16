@@ -28,9 +28,10 @@ window.onload = function () {
     });
   }
 
-
+  // this is the table where the data lives
   var tableName = "powerplants_us_201603";
 
+  // it is a public layer in mishmashmaps' account
   var layerSource = {
     user_name: 'mishmashmaps',
     type: 'cartodb',
@@ -51,7 +52,7 @@ window.onload = function () {
     // zoom: 5
   });
 
-  // Change basemap to Dark Matter Lite
+  // Set basemap as Dark Matter Lite
   L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
 
     // list of carto basemaps:
