@@ -28,35 +28,14 @@ window.onload = function () {
     });
   }
 
-  // ~~~~~~~~~~~~~~~~~~~
-  // TUTORIAL VERSION
-  // ~~~~~~~~~~~~~~~~~~~~
-  // var tableName = "earthquakes_cdbjs_lesson3";
-  //
-  // // Put layer data into a JS object
-  // var layerSource = {
-  //   user_name: 'documentation',
-  //   type: 'cartodb',
-  //   sublayers: [{
-  //     sql: "SELECT * FROM " + tableName, // All recorded earthquakes past 30 days
-  //     cartocss: $("#simple").text() // Simple visualization
-  //   }]
-  // }
-
-  // ~~~~~~~~~~~~~~~~~~
-  // MY VERSION
-  // ~~~~~~~~~~~~~~~
 
   var tableName = "powerplants_us_201603";
-  // var tableName = "afv_stations_85_now";
-  // var tableName = "uk_nat_chrgpt_07_16";
 
-  // Put layer data into a JS object
   var layerSource = {
     user_name: 'mishmashmaps',
     type: 'cartodb',
     sublayers: [{
-      sql: "SELECT * FROM " + tableName, // All recorded earthquakes past 30 days
+      sql: "SELECT * FROM " + tableName, // All power plants in dataset
       cartocss: $("#simple").text() // Simple visualization
     }]
   }
@@ -74,8 +53,6 @@ window.onload = function () {
 
   // Change basemap to Dark Matter Lite
   L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
-    // Former basemap
-    // http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png
 
     // list of carto basemaps:
     // http://bl.ocks.org/Xatpy/raw/854297419bd7eb3421d0/
