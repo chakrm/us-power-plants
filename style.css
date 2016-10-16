@@ -13,38 +13,66 @@ html, body, #map {
     top: 20px;
     right: 292px;
 }
+
+a {
+    font-weight: bold;
+    color: #666666;
+    cursor: pointer;
+}
+
+/* From Violent Crime Project
+https://carto.com/blog/layer-selector/ */
+
 .layer_selector {
-    background: rgba(255,255,255,0.9);
-    border-radius: 5px;
+    background: #fff;
+    border-radius: 4px;
     padding: 0;
-    border: 1px solid #999;
-    width: 250px;
+    border: 1px solid #999999;
+    width: 248px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 4px 2px;
+    font: 11px 'Helvetica';
+    position: absolute;
+    right: 20px;
 }
 
 .layer_selector > p {
-    padding: 15px 30px;
+    font-weight: bold;
+    color: #666666;
+    padding: 14px 14px 12px 14px;
+    cursor: pointer;
     border-bottom: 1px solid #999;
 }
 
 .layer_selector ul {
-    padding: 0; margin: 0;
+    padding: 0;
+    margin: 0;
     list-style-type: none;
+    bottom: 36px;
+    border-radius: 4px;
 }
 .layer_selector li {
-    padding: 15px 30px;
-    font-family: Helvetica, Arial;
-    font-size: 13px;
-    color: #444;
+    padding: 14px;
+    font-size: 11px;
+    color: #222;
     cursor: pointer;
 }
 .layer_selector li:not(:last-child) {
     border-bottom: 1px solid #999;
 }
 .layer_selector li:hover {
-    background-color: #F0F0F0;
+    background-color: #e5e5e5;
     cursor: pointer;
 }
 .layer_selector li.sql_selected,
 .layer_selector li.cartocss_selected {
     background-color: #A6CEE3;
+}
+
+div.cartodb-legend-stack {
+bottom: 30px;
+right: 30px;
+}
+
+div.cartodb-legendcategory {
+  font: 11px 'Helvetica';
 }
