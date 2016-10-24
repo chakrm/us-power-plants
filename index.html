@@ -13,7 +13,7 @@
         <link rel="shortcut icon" href="https://carto.com/favicon.ico" />
 
         <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
-        <link rel="stylesheet" href="https://carto.com/academy/css/cdbui.css" type="text/css" />
+        <!--<link rel="stylesheet" href="https://carto.com/academy/css/cdbui.css" type="text/css" /> !-->
         <link rel="stylesheet" href="style.css">
             <style type="cartocss/html" id="simple">
                 /* Place simple style here */
@@ -23,7 +23,7 @@
                   marker-line-width: 1;
                   marker-line-opacity: 1;
                   marker-placement: point;
-                  marker-type: ellipse;
+                /*marker-type: ellipse; */
                   marker-width: 10;
                   marker-fill: #FF6600;
                   marker-allow-overlap: true;
@@ -40,7 +40,7 @@
               marker-line-width: 0.5;
               marker-line-opacity: 0.8;
               marker-placement: point;
-              marker-type: ellipse;
+              /*marker-type: ellipse; */
               marker-width: 10;
               marker-allow-overlap: true;
             }
@@ -90,7 +90,7 @@
               marker-line-opacity: 1;
               marker-placement: point;
               marker-multi-policy: largest;
-              marker-type: ellipse;
+              /*marker-type: ellipse; */
               marker-fill: #FF5C00;
               marker-allow-overlap: true;
               marker-clip: false;
@@ -134,7 +134,7 @@
             marker-line-width: 0.5;
             marker-line-opacity: 0.8;
             marker-placement: point;
-            marker-type: ellipse;
+            /*marker-type: ellipse; */
             marker-width: 10;
             marker-allow-overlap: true;
             }
@@ -184,7 +184,7 @@
               marker-line-opacity: 1;
               marker-placement: point;
               marker-multi-policy: largest;
-              marker-type: ellipse;
+              /*marker-type: ellipse; */
               marker-fill: #FF5C00;
               marker-allow-overlap: true;
               marker-clip: false;
@@ -232,7 +232,7 @@
               marker-line-opacity: 1;
               marker-placement: point;
               marker-multi-policy: largest;
-              marker-type: ellipse;
+              /*marker-type: ellipse; */
               marker-fill: #FFCC00;
               marker-allow-overlap: true;
               marker-clip: false;
@@ -281,7 +281,7 @@
               marker-line-opacity: 1;
               marker-placement: point;
               marker-multi-policy: largest;
-              marker-type: ellipse;
+              /*marker-type: ellipse; */
               marker-fill: #7B00B4;
               marker-allow-overlap: true;
               marker-clip: false;
@@ -328,12 +328,12 @@
           <p>STYLES</p>
           <!-- CSS styles to apply to power plant data !-->
           <ul>
-            <li data="categ-report-sta" data-type="cartocss">Categorize power plants by primary generation source</li>
-            <li data="overall-power-magnitude" data-type="cartocss">Size power plants by magnitude generation</li>
-            <li data="solar-bubble-magnitude" data-type="cartocss">Size power plants by magnitude solar generation</li>
-            <li data="wind-bubble-magnitude" data-type="cartocss">Size power plants by magnitude wind generation</li>
-            <li data="bubble-choropleth" data-type="cartocss">Size power plants  by magnitude, color by prim generation source</li>
-            <li data="simple" data-type="cartocss">Reset CartoCSS</li>
+            <li data="categ-report-sta" data-type="cartocss">Power plants by primary generation source</li>
+            <li data="overall-power-magnitude" data-type="cartocss">Magnitude TOTAL generation</li>
+            <li data="solar-bubble-magnitude" data-type="cartocss">Magnitude SOLAR generation</li>
+            <li data="wind-bubble-magnitude" data-type="cartocss">Magnitude WIND generation</li>
+            <li data="bubble-choropleth" data-type="cartocss">Size by magnitude, color by primary generation source</li>
+            <li data="simple" data-type="cartocss">Reset style</li>
           </ul>
         </div>
 
@@ -341,12 +341,12 @@
           <p>QUERIES</p>
           <!-- SQL queries to apply to power plant data !-->
           <ul>
-            <li data=" WHERE (coal_mw = 0)" data-type="sql">Show where no coal generation</li>
-            <li data=" WHERE statename IN ('New York','Massachusetts','Rhode Island') AND statename IS NOT NULL" data-type="sql">Show power plants in Massachusetts, New York, and Rhode Island</li>
-            <li data=" WHERE  sector_nam IN ('Electric Utility')" data-type="sql">Show electric utility-operated plants</li>
-            <li data=" WHERE  sector_nam IN ('IPP Non-CHP','Industrial CHP','IPP CHP','Commercial Non-CHP','Commercial CHP','Industrial Non-CHP')" data-type="sql">Show non-electric utility-operated plants</li>
-            <li data=" WHERE  sector_nam IN ('Commercial CHP')" data-type="sql">Show commercial CHP-operated plants</li>
-            <li data="" data-type="sql">Reset SQL</li>
+            <li data=" WHERE (coal_mw = 0)" data-type="sql">NO COAL generation</li>
+            <li data=" WHERE statename IN ('New York','Massachusetts','Rhode Island') AND statename IS NOT NULL" data-type="sql">Power plants in MA, NY, and RI</li>
+            <li data=" WHERE  sector_nam IN ('Electric Utility')" data-type="sql">Electric utility plants</li>
+            <li data=" WHERE  sector_nam IN ('IPP Non-CHP','Industrial CHP','IPP CHP','Commercial Non-CHP','Commercial CHP','Industrial Non-CHP')" data-type="sql">Non-electric utility plants</li>
+            <li data=" WHERE  sector_nam IN ('Commercial CHP')" data-type="sql">Commercial CHP-operated plants</li>
+            <li data="" data-type="sql">Reset query</li>
           </ul>
         </div>
 
