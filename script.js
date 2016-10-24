@@ -53,10 +53,7 @@ window.onload = function () {
   });
 
   // Set basemap as Dark Matter Lite
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
-
-    // list of carto basemaps:
-    // http://bl.ocks.org/Xatpy/raw/854297419bd7eb3421d0/
+  L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/{dark_nolabels}/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map_object);
 
