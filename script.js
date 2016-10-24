@@ -53,7 +53,7 @@ window.onload = function () {
   });
 
   // Set basemap as Dark Matter Lite
-  L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
 
     // list of carto basemaps:
     // http://bl.ocks.org/Xatpy/raw/854297419bd7eb3421d0/
